@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   DESIGN TOKENS
+   Downingtown STEM TSA — restrained four-colour system.
+   Change the four values below to retune the whole site.
+   --------------------------------------------------------------------------- */
+@theme {
+  /* Surfaces */
+  --color-paper: #faf8f4;
+  --color-paper-2: #f2efe8;
+  --color-ink: #14161a;
+  --color-ink-2: #4a4f57;
+  --color-ink-3: #7c828c;
+
+  /* School / TSA primary + single restrained accent */
+  --color-navy: #14395f;
+  --color-navy-2: #1d4e80;
+  --color-signal: #b3271f;
+
+  /* Hairlines */
+  --color-rule: #d7d2c6;
+  --color-rule-strong: #b8b2a3;
+
+  --font-display: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, monospace;
+
+  --radius-none: 0px;
+}
+
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: clip;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-navy);
+  color: var(--color-paper);
+}
+
+/* Visible, high-contrast focus for keyboard users only. */
+:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 2px;
+}
+
+@layer components {
+  /* Small uppercase technical label — used everywhere instead of pills. */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+  }
+
+  /* Square, bordered controls. No pills, no floating shadows. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    border: 1px solid var(--color-ink);
+    padding: 0.75rem 1.125rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: background-color 120ms linear, color 120ms linear;
+  }
+  .btn:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+  .btn-primary {
+    background: var(--color-navy);
+    border-color: var(--color-navy);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--color-ink);
+    border-color: var(--color-ink);
+  }
+
+  /* Diagonal hatch used for every real-photo placeholder. */
+  .hatch {
+    background-color: var(--color-paper-2);
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 9px,
+      rgba(20, 57, 95, 0.09) 9px,
+      rgba(20, 57, 95, 0.09) 10px
+    );
+  }
+
+  /* Marks content the officers must replace before launch. */
+  .todo {
+    border-left: 2px solid var(--color-signal);
+    padding-left: 0.75rem;
+    color: var(--color-ink-2);
+  }
+
+  .link-underline {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--color-rule-strong);
+  }
+  .link-underline:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+/* One shared entrance animation. Nothing floats, nothing loops. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 420ms cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
