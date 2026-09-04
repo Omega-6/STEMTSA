@@ -16,6 +16,24 @@ Three markers appear across the site:
 
 Clearing all three is the launch checklist.
 
+## Logos
+
+Put the two files in `public/logos/`, then point at them in `data/site.ts`:
+
+```ts
+logos: {
+  school: "/logos/downingtown-stem.svg",
+  tsa: "/logos/tsa.svg",
+},
+```
+
+SVG is best. A transparent PNG around 240px tall also works. Write the paths
+starting with a slash; the GitHub Pages prefix is added automatically.
+
+Until both are set, every logo slot shows a designed monogram rather than a
+broken image, so the site is presentable either way. The slots appear in the
+navigation bar, the hero and the footer, and all three update at once.
+
 ## What's happening tiles
 
 `data/whats-happening.ts`. Four tiles under the hero. Set `headline`, `date` and

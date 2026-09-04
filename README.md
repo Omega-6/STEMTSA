@@ -72,6 +72,7 @@ Read [ContentGuide.md](ContentGuide.md). Short version:
 | FAQ | `data/faqs.ts` |
 | Resource and learning links | `data/resources.ts` |
 | Chapter email, season label, official links | `data/site.ts` |
+| Logo files | `public/logos/` plus `logos` in `data/site.ts` |
 
 Run `npm run typecheck` after editing. A missing field or a typo in a category
 name fails there rather than breaking a page in production.
@@ -89,11 +90,12 @@ site is ready when they are gone.
 
 ## Before launch
 
-1. Replace `contactEmail` in `data/site.ts`.
-2. Replace the three example announcements in `data/announcements.ts`.
-3. Replace the two template projects in `data/projects.ts` with real write ups.
-4. Confirm every date in `data/calendar.ts` and remove its `unconfirmed` flag.
-5. Add real photos to `public/` and swap `PhotoPlaceholder` for `next/image`.
-6. Confirm the adviser entry in `data/officers.ts`.
-7. Verify event categories and individual or team values against the current
+1. Add the two logo files to `public/logos/` and set `logos` in `data/site.ts`.
+2. Replace `contactEmail` in `data/site.ts`.
+3. Replace the three example announcements in `data/announcements.ts`.
+4. Replace the two template projects in `data/projects.ts` with real write ups.
+5. Confirm every date in `data/calendar.ts` and remove its `unconfirmed` flag.
+6. Add real photos to `public/` and swap `PhotoPlaceholder` for `next/image`.
+7. Confirm the adviser entry in `data/officers.ts`.
+8. Verify event categories and individual or team values against the current
    competition regulations.

@@ -21,6 +21,10 @@ const nextConfig: NextConfig = {
   basePath,
   assetPrefix: basePath || undefined,
 
+  // next/link and next/image add the base path on their own. Anything we write
+  // by hand (a logo <img>, a favicon) needs it too, so hand it to the client.
+  env: { NEXT_PUBLIC_BASE_PATH: basePath },
+
   // The Pages CDN cannot run Next's image optimiser.
   images: { unoptimized: true },
 };

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "./Logo";
 import { officialLinks, site } from "@/data/site";
 
 const QUICK = [
@@ -24,6 +25,10 @@ export default function Footer() {
       <div className="mx-auto max-w-[86rem] px-4 py-10 sm:px-6">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
+            <div className="mb-4 flex items-center gap-2">
+              <Logo which="school" size={40} />
+              <Logo which="tsa" size={40} />
+            </div>
             <p className="display text-lg uppercase leading-tight">
               Downingtown STEM
               <br />

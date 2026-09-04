@@ -1,6 +1,8 @@
 import Link from "next/link";
 import AchievementsCarousel from "@/components/AchievementsCarousel";
 import HappeningTiles from "@/components/HappeningTiles";
+import Logo from "@/components/Logo";
+import Reveal from "@/components/Reveal";
 import Timeline from "@/components/Timeline";
 import AnnouncementCard from "@/components/AnnouncementCard";
 import { ArrowLink, PhotoPlaceholder, SectionHead } from "@/components/Primitives";
@@ -26,7 +28,13 @@ export default function HomePage() {
         <div className="mx-auto max-w-[86rem] px-4 sm:px-6">
           <div className="grid items-end gap-8 py-10 lg:grid-cols-12 lg:gap-12 lg:py-16">
             <div className="rise lg:col-span-6">
-              <p className="label border-b border-rule pb-3 text-navy">{site.season}</p>
+              <div className="flex items-center justify-between gap-4 border-b border-rule pb-3">
+                <p className="label text-navy">{site.season}</p>
+                <span className="flex items-center gap-2">
+                  <Logo which="school" size={30} />
+                  <Logo which="tsa" size={30} />
+                </span>
+              </div>
               <h1 className="display mt-6 text-[clamp(2.5rem,5.4vw,4.25rem)] uppercase">
                 Downingtown
                 <br />
@@ -74,6 +82,7 @@ export default function HomePage() {
 
       <div className="mx-auto max-w-[86rem] px-4 sm:px-6">
         {/* ------------------------------------------- 01 WHAT'S HAPPENING */}
+        <Reveal>
         <section className="py-12 lg:py-16">
           <SectionHead
             index="01"
@@ -85,8 +94,10 @@ export default function HomePage() {
             <HappeningTiles />
           </div>
         </section>
+        </Reveal>
 
         {/* --------------------------------------------- 02 YEAR AT A GLANCE */}
+        <Reveal>
         <section className="py-12 lg:py-16">
           <SectionHead
             index="02"
@@ -95,8 +106,10 @@ export default function HomePage() {
           />
           <Timeline />
         </section>
+        </Reveal>
 
         {/* ------------------------------------------------ 03 FIND YOUR EVENT */}
+        <Reveal>
         <section className="py-12 lg:py-16">
           <SectionHead
             index="03"
@@ -126,8 +139,10 @@ export default function HomePage() {
             ))}
           </ul>
         </section>
+        </Reveal>
 
         {/* ------------------------------------------------- 04 ANNOUNCEMENTS */}
+        <Reveal>
         <section className="py-12 lg:py-16">
           <SectionHead
             index="04"
@@ -140,8 +155,10 @@ export default function HomePage() {
             ))}
           </div>
         </section>
+        </Reveal>
 
         {/* ---------------------------------------------------- 05 PROJECTS */}
+        <Reveal>
         <section className="py-12 lg:py-16">
           <SectionHead
             index="05"
@@ -162,6 +179,7 @@ export default function HomePage() {
             ))}
           </div>
         </section>
+        </Reveal>
 
         {/* --------------------------------------------------------- 06 HUB */}
         <section className="pb-16 pt-12 lg:pb-24 lg:pt-16">

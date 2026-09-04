@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SearchDialog from "./SearchDialog";
+import Logo from "./Logo";
 import { site } from "@/data/site";
 
 const NAV = [
@@ -46,11 +47,9 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-[86rem] items-stretch justify-between gap-3 px-4 sm:px-6">
           {/* Wordmark */}
           <Link href="/" className="flex min-w-0 items-center gap-3 py-3" aria-label={`${site.shortName} — home`}>
-            <span
-              aria-hidden
-              className="grid h-9 w-9 shrink-0 place-items-center border border-ink bg-navy text-[0.7rem] font-bold tracking-tight text-white"
-            >
-              DS
+            <span className="flex shrink-0 items-center gap-1.5">
+              <Logo which="school" size={34} />
+              <Logo which="tsa" size={34} />
             </span>
             <span className="min-w-0 leading-none">
               <span className="display block truncate text-[0.8rem] uppercase tracking-tight sm:text-[0.95rem]">

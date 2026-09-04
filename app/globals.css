@@ -129,6 +129,22 @@ body {
   }
 }
 
+/* Scroll reveal. Visible by default; the data-js attribute (set by an inline
+   script in the layout) is what opts a browser into hiding-then-revealing, so
+   the page is never blank without JavaScript. */
+[data-js] .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 620ms cubic-bezier(0.2, 0.6, 0.2, 1),
+    transform 620ms cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+[data-js] .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 /* One shared entrance animation. Nothing floats, nothing loops. */
 @keyframes rise {
   from {
@@ -146,6 +162,11 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  [data-js] .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
   *,
   *::before,
   *::after {

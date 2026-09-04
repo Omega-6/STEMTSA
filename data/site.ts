@@ -16,6 +16,17 @@ export const site = {
 
   /* Real link, given to us by the officer team. */
   askAQuestionForm: "https://forms.gle/7pBqNy7eKJoV6Vk19",
+
+  /* Logo files. Put them in /public/logos/ and set the paths here, e.g.
+     school: "/logos/downingtown-stem.svg". SVG is best; a transparent PNG at
+     roughly 240px tall also works. While these are null every logo slot on the
+     site falls back to a designed monogram, so nothing looks broken.
+     Write them as plain root paths starting with a slash. The GitHub Pages
+     base path is added for you at build time. */
+  logos: {
+    school: null as string | null,
+    tsa: null as string | null,
+  },
 } as const;
 
 /* Official sites. We link out rather than restating rules we do not control.
