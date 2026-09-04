@@ -8,9 +8,32 @@ statically generated, so it can be hosted anywhere that serves a Next.js build.
 ```bash
 npm install
 npm run dev        # http://localhost:3000
-npm run build      # production build, 56 static pages
+npm run build      # writes the static site to out/, 56 pages
+npm run preview    # serve out/ locally to check the built site
 npm run typecheck  # tsc --noEmit, catches bad content edits
 ```
+
+## Hosting
+
+The site is deployed to GitHub Pages at <https://omega-6.github.io/STEMTSA/>.
+
+`.github/workflows/deploy.yml` builds and publishes on every push to `main`. There
+is nothing to run by hand. The Actions tab shows each deploy, and the workflow can
+be rerun from there if one fails.
+
+The build is a static export, so there is no server and no runtime cost. Fonts are
+self hosted at build time, which means the published site makes no third party
+requests at all.
+
+Two settings this depends on, both one time:
+
+1. Settings, Pages, Source is set to **GitHub Actions**.
+2. `PAGES_BASE_PATH` in the workflow is `/STEMTSA`, because Pages serves the repo
+   from a subfolder. It is only set in CI, so `npm run dev` still runs at `/`.
+
+To move to a custom domain later: add a `public/CNAME` file containing the domain,
+delete the `PAGES_BASE_PATH` line from the workflow, and set the domain under
+Settings, Pages.
 
 ## What is where
 
